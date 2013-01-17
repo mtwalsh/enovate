@@ -1,0 +1,28 @@
+/* Nested within the .content class to override the normal list styles */
+
+.content .breadcrumb {
+	@extend %sass-margin-bottom;
+	
+	li {
+		display: inline-block;
+		@include ie7-inline-block;
+		
+		&:after {
+			content:'/';		
+			padding: 0 0.4em 0 0.4em;
+			color: $light-grey;
+		}
+		
+		&:before {
+			content:none;
+		}
+	}
+	
+	li:last-child:after {
+		content:none;	
+	}
+	
+	li.current a {
+		color: $grey;
+	}
+}

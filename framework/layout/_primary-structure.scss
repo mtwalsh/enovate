@@ -1,0 +1,54 @@
+.container {
+	margin: 0 auto;
+	min-width: 320px - ($gutter*2); 
+	max-width: $max-width;
+	padding: 0 $gutter; 
+	
+	@include respond-to(small) {
+		padding: 0 $gutter*2 ;
+	}
+}
+
+.content {
+	
+	min-height: $content-min-height;
+	overflow: hidden;
+	padding-bottom: $base-spacing-unit;
+		
+	@include respond-to(medium) {
+		padding-bottom: $base-spacing-unit*2;
+	}
+}
+
+aside[role="complementary"] {
+
+	padding-bottom: $base-spacing-unit;	
+	
+	@include respond-to(medium) {
+		padding-top: $base-spacing-unit*2;
+	}	
+}
+
+//------------------------------------------------------------------------------------------------------
+// GRID
+//------------------------------------------------------------------------------------------------------
+
+.divide-bottom {
+	@extend %sass-margin-bottom;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: $base-spacing-unit - 1px;
+}
+
+@include grids-init("column");
+
+@include respond-to(small) {
+	@include grid-setup("small");   
+}
+
+@include respond-to(medium) {
+	@include grid-setup("medium");   
+}
+
+@include respond-to(large) {
+	@include grid-setup("large");   
+}

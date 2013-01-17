@@ -1,0 +1,70 @@
+/* 
+
+Templates Rules (using Sass placeholders)
+ 
+%template-name
+%template-name--modifier-name
+%template-name__sub-object
+%template-name__sub-object--modifier-name
+
+Component Rules 
+
+.component-name
+.component-name--modifier-name
+.component-name__sub-object
+.component-name__sub-object--modifier-name
+
+Layout Rules 
+
+.l-layout-method
+
+.grid
+
+State Rules 
+
+.is-state-type
+
+Non-styled JavaScript Hooks 
+
+.js-action-name
+
+*/
+
+//------------------------------------------------------------------------------------------------------
+// VARIABLES
+//------------------------------------------------------------------------------------------------------
+
+@import "variables";
+
+//------------------------------------------------------------------------------------------------------
+// FRAMEWORK
+//------------------------------------------------------------------------------------------------------
+
+@import "framework/enovate";
+
+//------------------------------------------------------------------------------------------------------
+// THEME
+//------------------------------------------------------------------------------------------------------
+
+// Global
+@import "theme/global/main";
+@import "theme/global/typography";
+
+// Main blocks
+@import "theme/components/header";
+@import "theme/components/footer";
+
+// Navigation blocks
+@import "theme/components/navigation/primary";
+@import "theme/components/navigation/secondary";
+
+// Components
+
+
+//------------------------------------------------------------------------------------------------------
+// BASELINE
+//------------------------------------------------------------------------------------------------------
+
+body {
+	@include baseline-grid-background( $base-spacing-unit/2, #eee );	
+} 

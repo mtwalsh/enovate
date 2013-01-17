@@ -1,0 +1,114 @@
+//------------------------------------------------------------------------------------------------------
+// HEADINGS
+//------------------------------------------------------------------------------------------------------
+
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ * 
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+ 
+h1,.alpha {
+    @include font-size($h1-size);
+}
+h2,.beta {
+    @include font-size($h2-size);
+}
+h3,.gamma {
+    @include font-size($h3-size);
+}
+h4,.delta {
+    @include font-size($h4-size);
+}
+h5,.epsilon {
+    @include font-size($h5-size);
+}
+h6,.zeta {
+    @include font-size($h6-size);
+}
+
+/* Remove margin-bottom when headings are within a hgroup */
+
+hgroup {
+	h1,h2,h3,h4,h5,h6 {
+        margin-bottom:0;
+	}
+}
+
+//------------------------------------------------------------------------------------------------------
+// PARAGRAPHS & LISTS
+//------------------------------------------------------------------------------------------------------
+
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger.
+ */
+.lede,
+.lead{
+    @include font-size($lead-font-size);
+}
+
+p, ul, ol, dl {
+	@include font-size($base-font-size);
+}
+
+small {
+	@include font-size($font-size-small);
+}
+
+
+//------------------------------------------------------------------------------------------------------
+// LINKS
+//------------------------------------------------------------------------------------------------------
+
+a {
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+
+//------------------------------------------------------------------------------------------------------
+// TEXT COLOURS
+//------------------------------------------------------------------------------------------------------
+
+.muted               { color: $light-grey; }
+a.muted:hover        { color: darken($light-grey, 10%); }
+
+.text-warning        { color: $warning-text; }
+a.text-warning:hover { color: darken($warning-text, 10%); }
+
+.text-error          { color: $error-text; }
+a.text-error:hover   { color: darken($error-text, 10%); }
+
+.text-info           { color: $info-text; }
+a.text-info:hover    { color: darken($info-text, 10%); }
+
+.text-success        { color: $success-text; }
+a.text-success:hover { color: darken($success-text, 10%); }
+
+//------------------------------------------------------------------------------------------------------
+// DEFINITION LISTS
+//------------------------------------------------------------------------------------------------------
+
+dt {
+  font-weight: bold;
+}
+// Horizontal layout (like forms)
+.dl--horizontal {
+  @include clearfix(); // Ensure dl clears floats if empty dd elements present
+  dt {
+    float: left;
+    width: $horizontal-component-offset - 20;
+    clear: left;
+    text-align: right;
+    @include text-overflow();
+  }
+  dd {
+    margin-left: $horizontal-component-offset;
+  }
+}

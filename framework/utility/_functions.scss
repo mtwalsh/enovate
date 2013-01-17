@@ -1,0 +1,154 @@
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ * 
+   `@include font-size(10px);`
+ * 
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+ 
+@mixin font-size($font-size){
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*1rem;
+    line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+}
+
+@mixin ie7-inline-block {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+@mixin ie7-restore-left-whitespace() {
+  *margin-left: .3em;
+
+  &:first-child {
+    *margin-left: 0;
+  }
+}
+
+@mixin ie7-restore-right-whitespace() {
+  *margin-right: .3em;
+}
+
+@mixin button-background($startColor, $endColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  // gradientBar will set the background to a pleasing blend of these, to support IE<=9
+  @include gradient-bar($startColor, $endColor, $textColor, $textShadow);
+  *background-color: $endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  @include reset-filter();
+
+  // in these cases the gradient won't cover the background, so we override
+  &:hover, &:active, &.active, &.disabled, &[disabled] {
+    color: $textColor;
+    background-color: $endColor;
+    *background-color: darken($endColor, 5%);
+  }
+
+  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+  &:active,
+  &.active {
+    background-color: darken($endColor, 10%) \9;
+  }
+}
+
+// Gradient Bar Colors for buttons and alerts
+@mixin gradient-bar($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: $textColor;
+  text-shadow: $textShadow;
+  //@include gradient-vertical($primaryColor, $secondaryColor);
+  @include background-image(linear-gradient($primaryColor, $secondaryColor));
+  border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), 0.15);
+}
+
+// Webkit-style focus
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Reset filters for IE
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Center-align a block level element
+// ----------------------------------
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+//@mixin remove-space {
+	//margin: 0; padding: 0;
+//}
+
+
+// Equalises the padding top and bottom to match the base spacing unit
+// This is used on tables and form elements
+// If the element has a border that can be passed in too
+// If the padding top is less than 6 it uses half the base spacing unit
+@mixin text-block-padding($top, $border: 0) {
+	
+	@if $top < 6 {
+		padding-top: $top;
+		padding-bottom: $base-spacing-unit/2 - ($top + $border);
+	} @else {
+		padding-top: $top;
+		padding-bottom: $base-spacing-unit - ($top + $border);
+	}
+	
+}
+
+@mixin respond-to($media) {
+	@if $media == small {
+    	@media only screen and (min-width: $break-small) { @content; }
+  	}
+  	@else if $media == medium {
+   		@media only screen and (min-width: $break-medium) { @content; }
+  	}
+  	@else if $media == large {
+   		@media only screen and (min-width: $break-large) { @content; }
+  	}
+}
+
+@mixin triangle($triangleSize, $triangleColor, $triangleDirection) {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: solid $triangleSize;
+    @if ($triangleDirection == top) {
+      border-color: $triangleColor transparent transparent transparent;
+    }
+    @if ($triangleDirection == bottom) {
+      border-color: transparent transparent $triangleColor transparent;
+    }
+    @if ($triangleDirection == left) {
+      border-color: transparent transparent transparent $triangleColor;
+    }
+    @if ($triangleDirection == right) {
+      border-color: transparent $triangleColor transparent transparent;
+    }
+}

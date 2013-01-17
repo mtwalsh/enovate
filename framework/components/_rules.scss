@@ -1,0 +1,51 @@
+//------------------------------------------------------------------------------------------------------
+// RULES
+//------------------------------------------------------------------------------------------------------
+
+hr,
+.rule {
+    color:$hr-border-color;
+	height:0;
+    border:none;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    margin-bottom:$base-spacing-unit - 1px;
+    margin-bottom:(($base-spacing-unit - 1px) / $base-font-size)*1rem;
+	clear: both;
+}
+
+.rule--dotted {
+    border-bottom-style:dotted;
+}
+
+.rule--dashed {
+    border-bottom-style:dashed;
+}
+
+.rule--ornament {
+    position:relative;
+
+    &:after {
+        content:"§";
+        position:absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        line-height:0;
+        text-align:center;
+    }
+}
+	
+/* TODO
+
+.rule--gradient {
+	border:0;
+	height:1px;
+	@include background-image(linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0)));
+	
+	.no-cssgradients & {
+		border-bottom-width:1px;
+		height:0;
+		background-image:none;
+	}
+}*/

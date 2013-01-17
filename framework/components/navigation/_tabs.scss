@@ -1,0 +1,47 @@
+ul.tabs {	
+	
+	margin: $base-spacing-unit 0 $base-spacing-unit*2;
+	
+	@include respond-to(small) { 
+	
+		border-bottom: 1px $grey solid;
+		overflow: visible;
+		@include pie-clearfix;
+	
+		li {
+			float: left;
+			margin-top: 0;
+			margin-right: -1px;
+			margin-bottom: -1px;		
+		}
+		
+		a {
+			background: none;
+			border: 1px $light-grey solid;
+			border-bottom: 0;
+			color: $grey;
+			line-height: $base-spacing-unit*3 - 2;
+			padding-top: 0;
+			padding-bottom: 0;
+			@include border-radius($default-border-radius $default-border-radius 0 0);
+		
+			&:hover {
+				background: none;
+				border-color: $grey;
+				color: $base-font-color;
+				position: relative;
+				z-index: 1;
+			}
+		}
+		
+		.active a {
+			background: $body-color;
+			border-color: $grey;
+			color: $base-font-color;
+			padding-bottom: 1px;
+			position: relative;
+			z-index: 2;
+		}
+	
+	}
+}

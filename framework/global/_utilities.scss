@@ -1,0 +1,22 @@
+//------------------------------------------------------------------------------------------------------
+// USEFUL CLASSES
+//------------------------------------------------------------------------------------------------------
+
+// Useful for floating images or other items left or right
+
+.pull-right {
+	@extend %sass-margin-bottom;
+	float:right;
+	margin-left:$gutter;
+}
+
+.pull-left {
+	@extend %sass-margin-bottom;
+	float:left;
+	margin-right:$gutter;
+}
+
+.center {
+	text-align:center;	
+}
+

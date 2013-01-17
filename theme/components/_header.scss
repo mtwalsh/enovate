@@ -1,0 +1,36 @@
+header[role="banner"] {
+	
+	@extend %sass-margin-bottom;
+	@extend %clearfix;
+	
+	background: #eee;
+	padding-bottom: $base-spacing-unit;
+	
+	@include respond-to(medium) {
+		padding: 0;
+	}
+	
+	> div {
+		@extend container;
+	}
+}
+
+.site-logo {
+	
+	height: $base-spacing-unit*3;
+	width: 180px;
+	margin: $base-spacing-unit 0;
+	
+	@include respond-to(medium) {
+		margin: $base-spacing-unit*1.5 0;	
+	}
+	
+	a {
+		display: block;
+		height: 100%;
+	
+		@include replace-text("http://placehold.it/180x72&text=LOGO%20HERE");
+		
+		
+	}
+}

@@ -1,0 +1,198 @@
+// IMPORTANT
+// Add any theme specific variables at the bottom in the THEME section
+
+//------------------------------------------------------------------------------------------------------
+// COLOURS
+//------------------------------------------------------------------------------------------------------
+
+// Brand
+$primary-color: 		#0a0 !default;
+$secondary-color: 		#00f !default;
+
+// Contrast
+$light-color: 			#222 !default;
+$dark-color: 			#555 !default;
+
+// Greyscale
+$black: 				#000 !default;
+$darker-grey: 			#222 !default;
+$dark-grey: 			#333 !default;
+$grey: 					#555 !default;
+$light-grey: 			#999 !default;
+$lighter-grey: 			#eee !default;
+$white: 				#fff !default;
+
+// Links
+$link-color: 			$primary-color !default;
+$link-color-hover: 		darken($link-color, 15%) !default;
+
+// Miscellaneous
+$body-color: 			#fff !default;
+$selection-color: 		#b3d4fc !default;
+$hr-border-color:    	#ccc !default;
+
+// Accent colors
+$blue:                  #049cdb !default;
+$dark-blue:             #0064cd !default;
+$green:                 #46a546 !default;
+$red:                   #9d261d !default;
+$yellow:                #ffc40d !default;
+$orange:                #f89406 !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
+
+//------------------------------------------------------------------------------------------------------
+// TYPOGRAPHY
+//------------------------------------------------------------------------------------------------------
+
+$base-font-size: 		12px;
+$font-size-large: 		16px !default;
+$font-size-small: 		10px !default;
+$lead-font-size: 		$base-font-size * 1.125 !default;
+$alert-font-size: 		$base-font-size * 1.125 !default;
+
+$base-line-height: 		24px !default;
+$base-font-color: 		#444 !default; 
+$base-font-family: 		"Open Sans", sans-serif !default;
+
+$h1-size: 				36px !default; // .alpha
+$h2-size: 				30px !default; // .beta
+$h3-size: 				24px !default; // .gamma
+$h4-size: 				20px !default; // .delta
+$h5-size: 				16px !default; // .epsilon
+$h6-size: 				14px !default; // .zeta
+
+//------------------------------------------------------------------------------------------------------
+// LAYOUT
+//------------------------------------------------------------------------------------------------------
+
+$gutter: 				24px !default;
+$max-width:				1352px !default;
+$grid-wrap-class: 		"grid" !default;
+$grid-col-class: 		"column" !default;
+$grid-support-old-ie: 	true !default; // null !default;
+
+//$break-small:			760px !default;
+//$break-medium:			960px !default;
+//$break-large:			1160px !default;
+
+$break-small:			30em !default;
+$break-medium:			48em !default;
+$break-large:			60em !default;
+
+$content-min-height: 	250px !default;
+
+$horizontal-component-offset: 180px !default;
+
+//------------------------------------------------------------------------------------------------------
+// PRESENTATION
+//------------------------------------------------------------------------------------------------------
+
+$padding-large:			11px!default;
+$padding-default:		11px!default;
+$padding-small:			5px!default;
+
+$base-border-radius:	4px!default;
+$border-radius-large:	6px!default;
+$border-radius-small:	3px!default;
+
+//------------------------------------------------------------------------------------------------------
+// BUTTONS
+//------------------------------------------------------------------------------------------------------
+
+$btn-background:					$white !default;
+$btn-background-highlight:			darken($white, 10%) !default;
+$btn-border:						#bbb !default;
+
+$btn-primary-background:			$link-color !default;
+$btn-primary-background-highlight:	adjust-hue($btn-primary-background, 20%) !default;
+
+$btn-info-background:				#5bc0de !default;
+$btn-info-background-highlight:		#2f96b4 !default;
+
+$btn-success-background:			#62c462 !default;
+$btn-success-background-highlight:	#51a351 !default;
+
+$btn-warning-background:			lighten($orange, 15%) !default;
+$btn-warning-background-highlight:	$orange !default;
+
+$btn-danger-background:				#ee5f5b !default;
+$btn-danger-background-highlight:	#bd362f !default;
+
+$btn-inverse-background:			#444 !default;
+$btn-inverse-background-highlight:	$darker-grey !default;
+
+//------------------------------------------------------------------------------------------------------
+// TABLES
+//------------------------------------------------------------------------------------------------------
+
+// Table header
+$table-header-font-color: 			$primary-color !default;
+$table-header-background-color:		$primary-color !default;
+$table-header-border-color:			$primary-color !default;
+
+// Other
+$table-background:					transparent !default; // overall background-color
+$table-background-accent:			#f9f9f9 !default; // for striping
+$table-background-hover:			#f5f5f5 !default; // for hover
+$table-border:						#ddd !default; // table and cell border
+
+//------------------------------------------------------------------------------------------------------
+// FORM STATES AND ALERTS
+//------------------------------------------------------------------------------------------------------
+
+$warning-text:             #c09853 !default;
+$warning-background:       #fcf8e3 !default;
+$warning-border:           darken(adjust-hue($warning-background, -10), 3%) !default;
+
+$error-text:               #b94a48 !default;
+$error-background:         #f2dede !default;
+$error-border:             darken(adjust-hue($error-background, -10), 3%) !default;
+
+$success-text:             #468847 !default;
+$success-background:       #dff0d8 !default;
+$success-border:           darken(adjust-hue($success-background, -10), 5%) !default;
+
+$info-text:                #3a87ad !default;
+$info-background:          #d9edf7 !default;
+$info-border:              darken(adjust-hue($info-background, -10), 7%) !default;
+
+//------------------------------------------------------------------------------------------------------
+// PAGINATION
+//------------------------------------------------------------------------------------------------------
+
+$pagination-background: 			$lighter-grey !default;
+$pagination-font-color: 			$dark-color !default;
+$pagination-border-color: 			darken($pagination-background, 5) !default;
+$pagination-active-background: 		$primary-color !default;
+$pagination-active-font-color: 		$white !default;
+$pagination-active-border-color: 	darken($pagination-active-background, 5) !default;
+$pagination-hover-background: 		$primary-color !default;
+$pagination-hover-font-color: 		$white !default;
+$pagination-hover-border-color: 	darken($pagination-hover-background, 5) !default;
+
+//------------------------------------------------------------------------------------------------------
+// CALCULATED VARIABLES
+//------------------------------------------------------------------------------------------------------
+
+/* Assign our '$base-line-height' to a new spacing var for more transparency. */
+
+$base-spacing-unit: $base-line-height!default;
+$half-spacing-unit: $base-spacing-unit / 2!default;
+$line-height-ratio: $base-line-height / $base-font-size;
+
+//------------------------------------------------------------------------------------------------------
+// UTILITY
+//------------------------------------------------------------------------------------------------------
+
+/**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+$debug-mode: false;
+
+//------------------------------------------------------------------------------------------------------
+// THEME
+//------------------------------------------------------------------------------------------------------
+
+/* Theme variables here */

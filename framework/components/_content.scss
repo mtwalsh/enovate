@@ -1,0 +1,31 @@
+//------------------------------------------------------------------------------------------------------
+// CONTENT
+//------------------------------------------------------------------------------------------------------
+
+.content {
+	
+	ul {
+		list-style:none;	
+	}
+				
+	ul li {
+		position:relative;
+		
+		.no-generatedcontent & {
+			list-style: disc;
+		}
+	}
+						
+	ul li:before {
+	    content: '•';
+	    position: absolute;
+	    left: -20px;
+		color: $primary-color;
+		@include font-size(22px);
+	}
+	
+	ul.nav li:before {
+	    content: '';
+	}
+
+}

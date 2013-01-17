@@ -1,0 +1,54 @@
+//------------------------------------------------------------------------------------------------------
+// BASE ELEMENTS
+//------------------------------------------------------------------------------------------------------
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dl,
+blockquote,p,address,
+table,
+fieldset,figure,
+pre,
+
+%sass-margin-bottom,
+.media,
+.island,
+.islet {
+    margin:0; /* Remove the margin applied by 'normalise' perhaps look at correcting it there to remove this additional CSS */
+	margin-bottom:$base-spacing-unit;
+    margin-bottom:($base-spacing-unit / $base-font-size)*1rem;
+    
+    .islet & {
+        margin-bottom:$base-spacing-unit / 2;
+        margin-bottom:(($base-spacing-unit / $base-font-size) / 2)*1rem;
+    }
+}
+
+/* Remove margin-bottom for nested lists */
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+/* Doubled up 'margin-bottom' helper class */
+
+.landmark {
+    margin-bottom:2 * $base-spacing-unit;
+    margin-bottom:(2 * $base-spacing-unit / $base-font-size)*1rem;
+}
+
+/* 'hr' elements only take up a few pixels, so we need to give them special */
+
+hr {
+    margin-bottom:$base-spacing-unit - 2px;
+    margin-bottom:(($base-spacing-unit - 2px) / $base-font-size)*1rem;
+}
+
+/* Where 'margin-left' is concerned we want to try and indent certain elements */
+
+ul,ol,dd {
+    margin-left:$base-spacing-unit;
+    margin-left:($base-spacing-unit / $base-font-size)*1rem;
+}
